@@ -11,6 +11,7 @@ vagrant_version = Vagrant::VERSION.sub(/^v/, '')
 
 default_installs = vagrant_dir + '/provisioning/default-install.yml'
 custom_installs_dir = vagrant_dir + '/hgv_data/config/sites'
+custom_vhosts_dir = vagrant_dir + '/hgv_data/config/vhosts'
 
 require 'yaml'
 
@@ -48,6 +49,10 @@ Dir.glob( vagrant_dir + '/hgv_data/config/*.yml').each do |custom_file|
     print "\n*** Custom YML file [ " + custom_file +" ] has been detected ***\n"
     print "*** DEPRECATED: Please move it to " + custom_installs_dir +"/ ***\n\n"
     sleep 2
+    domains_array += domains_from_yml(custom_file)
+end
+# WAGAMOD: Load user specified vhosts
+Dir.glob( custom_vhosts_dir + "/*.yml").each do |custom_file|
     domains_array += domains_from_yml(custom_file)
 end
 
@@ -135,6 +140,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # Custom site provisioning
     config.vm.provision "shell" do |s|
         s.path = "bin/custom-sites.sh"
+        s.keep_color = true
+    end
+
+    # WAGAMOD: Custom vhosts provisioning
+    config.vm.provision "shell" do |s|
+        s.path = "bin/custom-vhosts.sh"
         s.keep_color = true
     end
 

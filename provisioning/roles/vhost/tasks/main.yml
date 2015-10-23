@@ -1,0 +1,7 @@
+---
+- name: Create vhost directory
+  file: path={{ vagrant_doc_root }}/{{ dir }} state=directory mode=0755
+
+- name: "Set up {{ dir }} virtualhost"
+  template: src=etc/nginx/conf.d/vhost.conf dest=/etc/nginx/conf.d/www-{{ dir }}.conf owner=root group=root mode=0644
+  notify: nginx reload

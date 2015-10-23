@@ -1,0 +1,27 @@
+---
+- hosts: all
+  connection: local
+  sudo: yes
+
+  roles:
+    # Set up a WordPress endpoint served by HHVM and PHP-FPM.
+    - {
+        role: vhost,
+        dir: "{{ vhost.dir }}",
+        domains: "{{ vhost.hhvm_domains }} + {{ vhost.php_domains }}",
+      }
+    - {
+        role: listener,
+        enviro: "{{ vhost.dir }}",
+        backend: hhvm,
+        domain: "{{ vhost.hhvm_domains }}",
+        tags: [ 'wordpress' ]
+      }
+    - {
+        role: listener,
+        enviro: "{{ vhost.dir }}",
+        backend: php,
+        domain: "{{ vhost.php_domains }}",
+        tags: [ 'wordpress' ],
+        when: vhost.php_domains is defined
+      }
