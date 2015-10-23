@@ -1,4 +1,4 @@
-# Mercury Vagrant (HGV) #
+# Mercury Vagrant (HGV) modded by WAGA #
 
 This project is meant to allow people in the WordPress community to run a single Vagrant for developing, debugging, and deploying HHVM based code. We have also added standard PHP to test against so that this project is useful for more standard development as well.
 
@@ -14,17 +14,15 @@ We have some great [getting started videos and guides here](http://wpengine.com/
 
 Mercury Vagrant is a WP Engine creation in partnership with community members.
 
-**Version:** 1.5
+**Version:** 1.0 (based on Mercury HGV 1.5)
 
-**Latest Stable:** 1.5
+**Latest Stable:** 1.0
 
-**Web:** [http://wpengine.com/mercury](http://wpengine.com/mercury)
+**Web:** [http://www.waga.it](http://www.waga.it)
 
-**Project Lead:** Jason Cohen
+**Project Lead:** Riccardo D'Angelo
 
-**Contributors:** Mark Kelnar, Doug Stewart, Zach Brown, RC Johnson, Jason Cohen, Kailey Lampert, Cameron Benedict, Grant Landram, Ryan Oeltjenbruns, Lowell Vaughn, Rachel Baker, Eric Mann, Stephen Lin
-
-**Thanks:** To the [VVV](http://varyingvagrantvagrants.org/) team and others who have worked on the open source we've included.
+**Thanks:** To the [HGV](http://wpengine.com/mercury/)
 
 ## Prerequisites ##
 In order to use HGV effectively, you'll need to have a few tools installed on your computer. You should:

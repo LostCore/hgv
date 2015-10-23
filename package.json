@@ -1,13 +1,13 @@
 {
-  "name": "hgv-script-utilities",
+  "name": "hgv-script-utilities-waga",
   "version": "1.0.0",
-  "description": "Script Utilities for WPEngine's Hgv",
+  "description": "Script Utilities for WPEngine's Hgv (modded by WAGA version)",
   "main": "start.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "WPEngine",
-  "license": "MIT",
+  "author": "WAGA Team",
+  "license": "proprietary",
   "dependencies": {
     "chalk": "^1.1.0",
     "compare-version": "^0.1.2",
